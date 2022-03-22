@@ -29,7 +29,13 @@ class MarvelService {
             char.description = char.description.substring(0, 200) + '...';
         }
 
+        if (char.thumbnail.path === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available') {
+            const img = document.querySelector('.randomchar__img');
+            img.style.objectFit = 'contain';
+        }
+
         return {
+            id: char.id,
             name: char.name,
             description: char.description,
             thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
