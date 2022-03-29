@@ -30,7 +30,7 @@ const CharList = (props) => {
     } 
 
     const onError = () => {
-        setLoading(true);
+        setLoading(false);
         setError(true);
     }
 
