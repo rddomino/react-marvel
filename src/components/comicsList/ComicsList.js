@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import useMarvelService from '../../services/MarvelService'
 import Spinner from '../spinner/spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 
 import './comicsList.scss';
-import uw from '../../resources/img/UW.png';
 
 const ComicsList = () => {
     const [comicsList, setComicsList] = useState([]);
@@ -39,14 +39,14 @@ const ComicsList = () => {
     // Этот метод создан для оптимизации, 
     // чтобы не помещать такую конструкцию в метод render
     function renderItems(arr) {
-        const items =  arr.map((item, i) => {         
+        const items =  arr.map((item) => {         
             return (
                 <li className="comics__item" key={item.id}>
-                    <a href="#">
+                    <Link to={`/comics/${item.id}`}>
                         <img src={item.thumbnail} alt={item.title} className="comics__item-img"/>
                         <div className="comics__item-name">{item.title}</div>
                         <div className="comics__item-price">{item.price}</div>
-                    </a>
+                    </Link>
                 </li>                
             )
         });
