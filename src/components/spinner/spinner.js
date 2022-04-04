@@ -61,5 +61,3 @@ const Spinner = () => {
         </svg>
     )
 }
-
-export default Spinner;
